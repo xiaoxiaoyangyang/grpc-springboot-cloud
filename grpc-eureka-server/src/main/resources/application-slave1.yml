@@ -3,7 +3,8 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://${cloudServerSlave2:localhost}:8782/eureka/
+      defaultZone: http://${cloudServerSlave2:localhost}:8781/eureka/
+    register-with-eureka: false
   instance:
     hostname: ${cloudServerSlave1:localhost}
   server:

@@ -1,12 +1,12 @@
 server:
-  port: 0
+  port: 8783
 spring:
   application:
     name: grpc-spring-cloud-consumer
 eureka:
   client:
     service-url:
-      defaultZone: http://${cloudServerSlave1:localhost}:8781/eureka/,http://${cloudServerSlave2:localhost}:8782/eureka/
+      defaultZone: http://${cloudServerSlave1:localhost}:8781/eureka/
   instance:
     instance-id: ${spring.application.name}:${random.uuid}
 logging:

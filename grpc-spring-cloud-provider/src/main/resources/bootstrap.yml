@@ -1,17 +1,14 @@
 server:
-  port: 0
-grpc:
-  server:
-    port: 0
+  port: 8782
+
 spring:
   application:
     name: grpc-spring-cloud-provider
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${cloudServerSlave1:localhost}:8781/eureka/,http://${cloudServerSlave2:localhost}:8782/eureka/
-  instance:
-    instance-id: ${spring.application.name}:${random.uuid}
+
+  cloud:
+    kubernetes:
+      enabled: true
+
 logging:
   level:
     org.springframework.web.servlet.DispatcherServlet: DEBUG
