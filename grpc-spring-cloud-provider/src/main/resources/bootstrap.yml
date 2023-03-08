@@ -11,7 +11,8 @@ spring:
 
 logging:
   level:
-    root: DEBUG
+    root: info
+    com.linshen.grpcspringcloudprovider: debug
 # actuator management
 management:
   endpoint:
