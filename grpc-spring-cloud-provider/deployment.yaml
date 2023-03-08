@@ -19,7 +19,7 @@ spec:
           image: grpc-spring-cloud-provider:1
           imagePullPolicy: IfNotPresent #当本地有镜像的时候优先选用本地，没有才选择网络拉取
           ports:
-            - containerPort: 8081 #开放8080
+            - containerPort: 8782 #开放8080
 ---
 apiVersion: v1
 kind: Service
@@ -30,9 +30,9 @@ spec:
     app: grpc-spring-cloud-provider
   ports:
     - protocol: TCP
-      port: 8081
-      targetPort: 8081
-      nodePort: 31001
+      port: 8782
+      targetPort: 8782
+      nodePort: 32111
   type: NodePort
 ---
 kind: ClusterRole
