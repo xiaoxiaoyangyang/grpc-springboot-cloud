@@ -15,4 +15,6 @@ public class GrpcClientController {
     public String printMessage(@RequestParam(defaultValue = "LinShen") String name) {
         return grpcClientService.sendMessage(name);
     }
+
+
 }
