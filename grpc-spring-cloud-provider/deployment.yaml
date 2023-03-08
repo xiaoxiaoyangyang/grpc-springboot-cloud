@@ -32,7 +32,7 @@ spec:
     - protocol: TCP
       port: 8782
       targetPort: 8782
-      nodePort: 33111
+      nodePort: 30001
   type: NodePort
 ---
 kind: ClusterRole
