@@ -19,13 +19,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <net-devh-grpc.version>2.0.1.RELEASE</net-devh-grpc.version>
-        <spring-cloud.version>Finchley.SR1</spring-cloud.version>
 
-        <sonar.login>9129bbeb9b95ea497d14761ffaf55d19a2d63ce3</sonar.login>
-        <sonar.password></sonar.password>
-        <sonar.host.url>
-            http://120.79.168.114:9000
-        </sonar.host.url>
+
     </properties>
 
     <dependencyManagement>
@@ -120,6 +115,17 @@
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>
             <version>2.0.21</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-netflix-ribbon</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
