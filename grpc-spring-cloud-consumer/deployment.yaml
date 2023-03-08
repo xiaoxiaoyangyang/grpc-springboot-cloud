@@ -32,7 +32,7 @@ spec:
     - protocol: TCP
       port: 8783
       targetPort: 8783
-      nodePort: 32112
+      nodePort: 33112
   type: NodePort
 ---
 kind: ClusterRole
