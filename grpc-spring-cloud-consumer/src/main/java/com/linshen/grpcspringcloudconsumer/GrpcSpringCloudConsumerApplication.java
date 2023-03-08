@@ -11,4 +11,7 @@ public class GrpcSpringCloudConsumerApplication {
     public static void main(String[] args) {
         SpringApplication.run(GrpcSpringCloudConsumerApplication.class, args);
     }
+
+
+
 }

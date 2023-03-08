@@ -71,6 +71,7 @@
         <dependency>
             <groupId>com.linshen</groupId>
             <artifactId>grpc-springboot-cloud-lib</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
 
         <dependency>
