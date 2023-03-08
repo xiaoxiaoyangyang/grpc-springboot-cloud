@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment # 指定资源类别
+metadata: #资源的一些元数据
+  name: grpc-spring-cloud-consumer #deloyment的名称
+  labels:
+    app: grpc-spring-cloud-consumer  #标签
+spec:
+  replicas: 1 #创建pod的个数
+  selector:
+    matchLabels:
+      app: grpc-spring-cloud-consumer #满足标签为这个的时候相关的pod才能被调度到
+  template:
+    metadata:
+      labels:
+        app: grpc-spring-cloud-consumer
+    spec:
+      containers:
+        - name: grpc-spring-cloud-consumer
+          image: grpc-spring-cloud-consumer:1
+          imagePullPolicy: IfNotPresent #当本地有镜像的时候优先选用本地，没有才选择网络拉取
+          ports:
+            - containerPort: 8783 #开放8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-spring-cloud-consumer
+spec:
+  selector:
+    app: grpc-spring-cloud-consumer
+  ports:
+    - protocol: TCP
+      port: 8783
+      targetPort: 8783
+      nodePort: 32112
+  type: NodePort
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: default
+  name: grpc-spring-cloud-consumer
+rules:
+  - apiGroups: [""]
+    resources: ["services", "endpoints", "pods"]
+    verbs: ["get", "list", "watch"]

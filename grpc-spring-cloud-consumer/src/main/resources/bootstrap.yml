@@ -3,12 +3,11 @@ server:
 spring:
   application:
     name: grpc-spring-cloud-consumer
-eureka:
-  client:
-    service-url:
-      defaultZone: http://${cloudServerSlave1:localhost}:8781/eureka/
-  instance:
-    instance-id: ${spring.application.name}:${random.uuid}
+
+  cloud:
+    kubernetes:
+      enabled: true
+
 logging:
   level:
     org.springframework.web.servlet.DispatcherServlet: DEBUG

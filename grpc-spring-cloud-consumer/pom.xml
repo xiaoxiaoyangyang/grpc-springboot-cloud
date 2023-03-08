@@ -3,18 +3,77 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.linshen</groupId>
     <artifactId>grpc-spring-cloud-consumer</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>grpc-spring-cloud-consumer</name>
 
-    <parent>
-        <artifactId>grpc-springboot-cloud</artifactId>
-        <groupId>com.linshen</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
+    <properties>
+        <spring-boot.version>2.3.8.RELEASE</spring-boot.version>
+        <commons-collections.version>3.2.2</commons-collections.version>
+        <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <net-devh-grpc.version>2.0.1.RELEASE</net-devh-grpc.version>
+        <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+
+        <sonar.login>9129bbeb9b95ea497d14761ffaf55d19a2d63ce3</sonar.login>
+        <sonar.password></sonar.password>
+        <sonar.host.url>
+            http://120.79.168.114:9000
+        </sonar.host.url>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- spring boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--公共grpc模块-->
+            <dependency>
+                <groupId>com.linshen</groupId>
+                <artifactId>grpc-springboot-cloud-lib</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <!--核心grpc-spring-boot依赖-->
+            <dependency>
+                <groupId>net.devh</groupId>
+                <artifactId>grpc-client-spring-boot-starter</artifactId>
+                <version>${net-devh-grpc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.devh</groupId>
+                <artifactId>grpc-server-spring-boot-starter</artifactId>
+                <version>${net-devh-grpc.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
+        <!--bootstrap.yml生效-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-context</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.linshen</groupId>
             <artifactId>grpc-springboot-cloud-lib</artifactId>
@@ -48,10 +107,23 @@
     </dependencies>
 
     <build>
+        <finalName>grpc-spring-cloud-consumer</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.3.8.RELEASE</version>
+                <configuration>
+                    <mainClass>com.linshen.grpcspringcloudconsumer.GrpcSpringCloudConsumerApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

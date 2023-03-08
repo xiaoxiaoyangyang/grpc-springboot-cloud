@@ -35,6 +35,16 @@
         </dependency>
     </dependencies>
 
+    <!-- 项目发布配置 -->
+    <distributionManagement>
+        <repository>
+            <id>sensetime</id>
+            <name>Sensetime Nexus Release Repository</name>
+            <url>http://maven.opencloud.sensetime.com/repository/irdc-maven2-mixed-hosted-public</url>
+        </repository>
+    </distributionManagement>
+
+
     <build>
         <extensions>
             <extension>
