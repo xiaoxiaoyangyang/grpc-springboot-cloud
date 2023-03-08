@@ -5,7 +5,7 @@ metadata: #资源的一些元数据
   labels:
     app: grpc-spring-cloud-provider  #标签
 spec:
-  replicas: 3 #创建pod的个数
+  replicas: 2 #创建pod的个数
   selector:
     matchLabels:
       app: grpc-spring-cloud-provider #满足标签为这个的时候相关的pod才能被调度到
