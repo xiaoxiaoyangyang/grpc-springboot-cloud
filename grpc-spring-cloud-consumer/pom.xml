@@ -119,7 +119,7 @@
         </dependency>
         <dependency>
             <groupId>io.grpc</groupId>
-            <artifactId>grpc-core</artifactId>
+            <artifactId>grpc-all</artifactId>
             <version>1.15.1</version>
         </dependency>
 
