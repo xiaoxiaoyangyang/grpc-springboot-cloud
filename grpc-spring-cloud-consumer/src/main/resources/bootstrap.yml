@@ -12,7 +12,8 @@ spring:
 
 logging:
   level:
-    org.springframework.web.servlet.DispatcherServlet: DEBUG
+    root: debug
+    com.linshen.grpcspringcloudconsumer: DEBUG
 # actuator management
 management:
   endpoint:
