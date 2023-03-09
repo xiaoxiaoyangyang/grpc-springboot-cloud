@@ -102,17 +102,17 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>net.devh</groupId>-->
-<!--            <artifactId>grpc-client-spring-boot-starter</artifactId>-->
-<!--        </dependency>-->
-
-        <!-- grpc -->
         <dependency>
             <groupId>net.devh</groupId>
             <artifactId>grpc-client-spring-boot-starter</artifactId>
-            <version>2.4.0.RELEASE</version>
         </dependency>
+
+        <!-- grpc -->
+<!--        <dependency>-->
+<!--            <groupId>net.devh</groupId>-->
+<!--            <artifactId>grpc-client-spring-boot-starter</artifactId>-->
+<!--            <version>2.4.0.RELEASE</version>-->
+<!--        </dependency>-->
 
         <!-- https://mvnrepository.com/artifact/com.alibaba.fastjson2/fastjson2 -->
         <dependency>
